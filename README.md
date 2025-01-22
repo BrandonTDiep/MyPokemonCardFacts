@@ -12,7 +12,7 @@ A website designed and developed to display facts about Pokemon Cards with Poké
 
 **Tech used:** 
 - React
-- Tailwind CS
+- Tailwind CSS
 - shadcn/ui
 
 ## Installation :
