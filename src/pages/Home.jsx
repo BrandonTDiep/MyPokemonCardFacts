@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 // components
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/Input";
 import PokemonCard from "../components/PokemonCard";
 import LoadingSpinner from '../components/LoadingSpinner'
 
@@ -22,6 +22,9 @@ const Home = () => {
     try{
       const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${query}`);
       setPokemonData(response.data.data.slice(0,10))
+      if (data.length === 0){
+        throw new Error("Character not found")
+      }
       setQuery("")
     }
     catch (err){
@@ -50,15 +53,15 @@ const Home = () => {
 
       {!loading ? 
       <ul>
-        {pokemonData.length > 0 ? 
+        {(pokemonData && pokemonData.length > 0) &&
           (pokemonData.map((pokemon) => (
             <li key={pokemon.id}>
             <PokemonCard pokemon={pokemon} />
           </li>
-          ))) 
-        :
-          <p>Could not find pokémon card.</p>
+          )))
         }
+        {error && <p className='text-center text-red-500 mt-4'>{error}</p>}
+
       </ul> 
       :
       <LoadingSpinner />
