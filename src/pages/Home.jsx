@@ -21,7 +21,7 @@ const Home = () => {
 
     try{
       const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${query}`);
-      setPokemonData(response.data.data.slice(0,3))
+      setPokemonData(response.data.data.slice(0,10))
       setQuery("")
     }
     catch (err){
@@ -50,11 +50,15 @@ const Home = () => {
 
       {!loading ? 
       <ul>
-        {pokemonData && pokemonData.map((pokemon) => (
-          <li key={pokemon.id}>
-          <PokemonCard pokemon={pokemon} />
-        </li>
-        ))}
+        {pokemonData.length > 0 ? 
+          (pokemonData.map((pokemon) => (
+            <li key={pokemon.id}>
+            <PokemonCard pokemon={pokemon} />
+          </li>
+          ))) 
+        :
+          <p>Could not find pokémon card.</p>
+        }
       </ul> 
       :
       <LoadingSpinner />

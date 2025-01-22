@@ -22,7 +22,7 @@ const PokemonCard = ({ pokemon }) => {
                 <div className="w-full md:w-1/2 lg:w-1/4 h-auto overflow-hidden rounded-l-lg">
                     <img
                         src={`${pokemon.images.small}`}
-                        className="w-full h-auto object-cover object-bottom" 
+                        className="w-full h-auto" 
                         alt={`${pokemon.name}'s picture`}
                     />
                 </div>
