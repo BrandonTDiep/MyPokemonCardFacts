@@ -52,18 +52,18 @@ const PokemonCard = ({ pokemon }) => {
                         {/* Card Description */}
                         {showStats ? 
                         (<CardDescription className='mt-3'>
-                            <p className="text-sm font-normal mb-1">
+                            <div className="text-sm font-normal mb-1">
                                 <span className="font-medium mr-1">Average Sell Price:</span> 
                                 ${pokemon.cardmarket.prices.averageSellPrice}
-                            </p>
-                            <p className="text-sm font-normal mb-1">
+                            </div>
+                            <div className="text-sm font-normal mb-1">
                                 <span className="font-medium mr-1">Trend Price:</span> 
                                 ${pokemon.cardmarket.prices.trendPrice}
-                            </p>
-                            <p className="text-sm font-normal mb-1">
+                            </div>
+                            <div className="text-sm font-normal mb-1">
                                 <span className="font-medium mr-1">Low Price:</span> 
                                 ${pokemon.cardmarket.prices.lowPrice}
-                            </p>
+                            </div>
                         </CardDescription>
                         )
                         : 
