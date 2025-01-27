@@ -21,14 +21,16 @@ const Home = () => {
 
     try{
       const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${query}`);
-      setPokemonData(response.data.data.slice(0,10))
-      if (data.length === 0){
+      const cards = response.data.data.slice(0,10)
+      if (cards.length === 0){
         throw new Error("Character not found")
       }
+      setPokemonData(cards)
       setQuery("")
     }
     catch (err){
       setError("Character not found.")
+      setPokemonData(null)
     } finally {
       setLoading(false)
     }

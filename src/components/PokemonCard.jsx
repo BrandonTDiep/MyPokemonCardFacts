@@ -27,10 +27,10 @@ const PokemonCard = ({ pokemon }) => {
                     />
                 </div>
 
-                <div className="w-full md:w-2/3 flex flex-col flex justify-center md:pl-5 mt-4 md:mt-0"> 
+                <div className="w-full md:w-2/3 flex flex-col justify-center md:pl-5 mt-4 md:mt-0"> 
                     <CardContent className="text-left p-0 pl-4">
                         {/* Card Title */}
-                        <CardTitle className="text-lg font-semibold text-lg flex items-center justify-between flex-wrap">
+                        <CardTitle className="font-semibold text-lg flex items-center justify-between flex-wrap">
                             <div>
                                 <span className={getColor(pokemon.types[0])}>{pokemon.name}</span>
                                 {pokemon.level && <span className='pl-2 text-xs'>LV.{pokemon.level}</span>}
